@@ -30,7 +30,6 @@ Test data for 6.: First, use players 'Davies', 'Muller', 'Lewandowski' and 'Kimm
 Then, call the function again with players from game.scored
 
 GOOD LUCK 😀
-*/
 
 const game = {
     team1: 'Bayern Munich',
@@ -86,15 +85,17 @@ console.log(allPlayers);
 const players1Final = [...players1, 'Thiago', 'Coutinho', 'Perisic'];
 console.log(players1Final);
 
-const {odds: {team1, x: draw, team2} } = game;
+const {odds: {team1, x:draw, team2} } = game;
 console.log(team1, draw, team2);
 
 const printGoals = function(...players) {
     console.log(`${players.length} goals were scored`);
-} 
+    console.log(...players);
+}
 printGoals('Davies', 'Muller', 'Lewandowski', 'Kimmich');
 printGoals('Davies', 'Muller');
 printGoals(...game.scored);
 
 team1 < team2 && console.log('Team 1 is more likely to win');
 team1 > team2 && console.log('Team 2 is more likely to win');
+*/

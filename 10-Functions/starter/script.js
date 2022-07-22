@@ -60,5 +60,143 @@ const newPassport = function(person) {
 
 newPassport(kristina);
 checkIn(flight, kristina);
-*/
 
+// Functions accepting callback functions
+const oneWord = function(str) {
+    return str.replace(/ /g, '').toLowerCase();
+};
+
+const upperFirstWord = function(str) {
+    const [first, ...others] = str.split(' ');
+    return [first.toUpperCase(), ...others].join(' ');
+};
+
+// Higher-order function
+const transformer = function(str, fn) {
+    console.log(`Original string: ${str}`);
+    console.log(`Transformed string: ${fn(str)}`);
+
+    console.log(`Transformed by: ${fn.name}`);
+};
+
+transformer('JavaScript is the best!', upperFirstWord);
+transformer('JavaScript is the best!', oneWord);
+
+// JS uses callbacks all the time
+const highFive = function() {
+    console.log('👋');
+};
+document.body.addEventListener('click', highFive);
+['Kristina', 'Amy', 'Rich'].forEach(highFive);
+
+// Functions Returning Functions
+const greet = function(greeting) {
+    return function(name){
+        console.log(`${greeting} ${name}`);
+    };
+};
+
+const greeterHey = greet('Hey');
+greeterHey('Kristina');
+greeterHey('Amy');
+
+greet('Hello')('Kristina');
+
+// Challenge
+const greetArr = greeting => name => console.log(`${greeting} ${name}`); 
+
+greetArr('Hi')('Kristina');
+
+// call and apply Methods
+const lufthansa = {
+    airline: 'Lufthansa',
+    iataCode: 'LH',
+    bookings: [],
+    book(flightNum, passName) {
+        console.log(`${passName} booked a seat on ${this.airline} flight ${this.iataCode}${flightNum}`);
+        this.bookings.push({flight: `${this.iataCode}${flightNum}`, passName})
+    },
+};
+
+lufthansa.book(239, 'Kristina Diaz');
+lufthansa.book(635, 'Amy Fuller');
+
+const eurowings = {
+    airline: 'Eurowings',
+    iataCode: 'EW',
+    bookings: [],
+};
+
+const books = lufthansa.book;
+
+// Does not work
+// books(23, 'Rich VanGilder');
+
+// Call method
+books.call(eurowings, 23, 'Rich VanGilder');
+console.log(eurowings);
+
+books.call(lufthansa, 239, 'Ian Strouse');
+console.log(lufthansa);
+
+const swiss = {
+    airline: 'Swiss Airlines',
+    iataCode: 'LX',
+    bookings: [],
+};
+
+books.call(swiss, 583, 'Kristina Diaz');
+
+// Apply method
+const flightData = [583, 'Amy Fuller'];
+books.apply(swiss, flightData);
+console.log(swiss);
+
+books.call(swiss, ...flightData);
+
+// bind Method
+// books.call(eurowings, 23, 'Rich VanGilder');
+
+const bookEW = books.bind(eurowings);
+const bookLH = books.bind(lufthansa);
+const bookLX = books.bind(swiss);
+
+bookEW(23, 'Kristina Diaz');
+
+const bookEW23 = books.bind(eurowings, 23);
+bookEW23('Amy Fuller');
+bookEW23('Kristina Diaz');
+
+
+// With Event Listeners
+lufthansa.planes = 300;
+lufthansa.buyPlane = function() {
+    console.log(this);
+
+    this.planes++
+    console.log(this.planes);
+};
+// lufthansa.buyPlane();
+
+document.querySelector('.buy').addEventListener('click', lufthansa.buyPlane.bind(lufthansa));
+
+// Partial application
+const addTax = (rate, value) => value + value * rate;
+console.log(addTax(0.1, 200));
+
+const addVAT = addTax.bind(null, 0.23);
+// addVAT = value => value + value * 0.23;
+console.log(addVAT(100));
+console.log(addVAT(23));
+
+// Challenge
+const addTaxRate = function(rate) {
+    return function(value) {
+        return value + value * rate;
+    };
+};
+
+const addVAT2 = addTaxRate(0.23);
+console.log(addVAT2(100));
+console.log(addVAT2(23));
+*/

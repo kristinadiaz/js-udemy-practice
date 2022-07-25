@@ -83,8 +83,13 @@ the time you need. Think about when exactly the callback function is executed,
 and what that means for the variables involved in this example.
 
 GOOD LUCK 
-*/
+
 (function () {
     const header = document.querySelector('h1');
     header.style.color = 'red';
+
+    document.querySelector('body').addEventListener('click', function() {
+        header.style.color = 'blue';
+    });
 }) ();
+*/

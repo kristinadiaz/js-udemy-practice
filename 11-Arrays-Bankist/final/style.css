@@ -4,7 +4,7 @@
  * Have fun! 😁
  */
 
-* {
+/* * {
   margin: 0;
   padding: 0;
   box-sizing: inherit;
@@ -81,24 +81,24 @@ nav {
 .btn--sort:focus {
   outline: none;
   color: #777;
-}
+} */
 
 /* MAIN */
-.app {
+/* .app {
   position: relative;
   max-width: 100rem;
   margin: 4rem auto;
   display: grid;
   grid-template-columns: 4fr 3fr;
   grid-template-rows: auto repeat(3, 15rem) auto;
-  gap: 2rem;
+  gap: 2rem; */
 
   /* NOTE This creates the fade in/out anumation */
-  opacity: 0;
+  /* opacity: 0;
   transition: all 1s;
-}
+} */
 
-.balance {
+/* .balance {
   grid-column: 1 / span 2;
   display: flex;
   align-items: flex-end;
@@ -120,10 +120,10 @@ nav {
 .balance__value {
   font-size: 4.5rem;
   font-weight: 400;
-}
+} */
 
 /* MOVEMENTS */
-.movements {
+/* .movements {
   grid-row: 2 / span 3;
   background-color: #fff;
   border-radius: 1rem;
@@ -165,10 +165,10 @@ nav {
 .movements__value {
   font-size: 1.7rem;
   margin-left: auto;
-}
+} */
 
 /* SUMMARY */
-.summary {
+/* .summary {
   grid-row: 5 / 6;
   display: flex;
   align-items: baseline;
@@ -204,10 +204,10 @@ nav {
   font-size: 1.3rem;
   font-weight: 500;
   cursor: pointer;
-}
+} */
 
 /* OPERATIONS */
-.operation {
+/* .operation {
   border-radius: 1rem;
   padding: 3rem 4rem;
   color: #333;
@@ -237,18 +237,18 @@ h2 {
   grid-template-columns: 2.5fr 2.5fr 1fr;
   grid-template-rows: auto auto;
   gap: 0.4rem 1rem;
-}
+} */
 
 /* Exceptions for interst */
-.form.form--loan {
+/* .form.form--loan {
   grid-template-columns: 2.5fr 1fr 2.5fr;
 }
 .form__label--loan {
   grid-row: 2;
-}
+} */
 /* End exceptions */
 
-.form__input {
+/* .form__input {
   width: 100%;
   border: none;
   background-color: rgba(255, 255, 255, 0.4);
@@ -294,4 +294,4 @@ h2 {
 
 .timer {
   font-weight: 600;
-}
+} */
